@@ -98,7 +98,7 @@ export class News extends Component {
       page: 1,
       totalResults:0
     }
-    document.title = `${this.capitalize(this.props.category)} - NewsMonkey`;
+    document.title = `${this.capitalize(this.props.category)} - DailyNews`;
     // console.log("Constructor");
   }
 
@@ -199,7 +199,7 @@ export class News extends Component {
           <div className="container">
           <div className="row">
             {/* !this.state.loading &&   remove from next line */}
-            {this.state.articles.map((element) => {
+            {!this.state.loading && this.state.articles.map((element) => {
               return <div className="col-md-4" key={element.url}>
                 <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 45) : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
               </div>
